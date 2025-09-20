@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { env } from "@/lib/env";
 
 import { SignInForm } from "./sign-in-form";
@@ -39,6 +40,14 @@ export default function SignInPage({ searchParams }: SignInPageProps) {
           <CardContent>
             <SignInForm callbackUrl={callbackUrl} showGoogle={showGoogle} initialError={errorMessage} />
           </CardContent>
+          <CardFooter className="justify-center">
+            <p className="text-sm text-muted-foreground">
+              Don&apos;t have an account?{" "}
+              <Link href="/auth/signup" className="font-medium text-primary hover:underline">
+                Create one
+              </Link>
+            </p>
+          </CardFooter>
         </Card>
       </div>
     </main>
